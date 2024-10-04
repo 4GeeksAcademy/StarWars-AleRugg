@@ -1,0 +1,61 @@
+.planetsUl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; 
+}
+
+/* Contenedor de las cards */
+.prueba {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden; /* Scroll oculto inicialmente */
+  padding: 10px;
+  gap: 10px;
+  scroll-behavior: smooth; /* Desplazamiento suave */
+  transition: overflow-x 0.3s ease-in-out; /* Suavizar la transición de aparición */
+  position: relative; /* Necesario si quieres usar un overlay o más control */
+}
+
+/* Mostrar el scroll cuando el mouse esté sobre el contenedor */
+.prueba:hover {
+  overflow-x: auto; /* Habilitar scroll cuando el mouse está encima */
+}
+
+/* Estilización del scrollbar para navegadores basados en WebKit (Chrome, Safari, Edge) */
+.prueba::-webkit-scrollbar {
+  height: 8px; /* Altura de la barra de desplazamiento */
+  background-color: transparent; /* Invisible inicialmente */
+  border-radius: 10px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Suavizar la transición del fondo */
+}
+
+/* Mostrar el scrollbar al hacer hover sobre el contenedor */
+.prueba:hover::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0.1); /* Fondo ligero cuando aparece el scroll */
+}
+
+/* Estilo del pulgar (parte que arrastras) */
+.prueba::-webkit-scrollbar-thumb {
+  background-color: rgba(136, 136, 136, 0.7); /* Color del pulgar */
+  border-radius: 10px; /* Bordes redondeados para el pulgar */
+  transition: background-color 0.3s ease; /* Suavizar el cambio de color */
+}
+
+/* Cuando se hace hover sobre el pulgar, cambiar el color */
+.prueba::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(85, 85, 85, 0.8); /* Más oscuro al hacer hover */
+}
+
+/* Firefox: Personalización del scrollbar */
+.prueba {
+  scrollbar-width: thin; /* Scroll delgado */
+  scrollbar-color: rgba(136, 136, 136, 0.7) transparent; /* Color del pulgar y pista transparente */
+}
+
+/* Pista del scroll en Firefox */
+.prueba::-webkit-scrollbar-track {
+  background-color: transparent; /* Oculta la pista por defecto */
+}
+
+  
