@@ -104,7 +104,7 @@ export const Navbar = () => {
                     </Link>
                 </li>
                 <li className="nav-item " role="presentation">
-                    <Link to="/planets"
+                    <Link to="/vehicles"
                         data-mdb-tab-init
                         className="nav-link linkTexts"
                         id="ex3-tab-2"

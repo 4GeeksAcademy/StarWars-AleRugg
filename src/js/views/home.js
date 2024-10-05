@@ -19,7 +19,7 @@ export const Home = () => {
 	useEffect(() => {
 		actions.getPlanets()
 		actions.getCharacters()
-		actions.getCharactersGens()
+
 	
 
 
@@ -32,7 +32,6 @@ export const Home = () => {
 
 	useEffect(() =>{
 		console.log(store.characters)
-		console.log(store.charactersGens)
 	},[store.characters])
 
 

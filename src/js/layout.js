@@ -9,6 +9,7 @@ import { Characters } from "./views/characters";
 import { Single } from "./views/single";
 import { SingleView } from "./views/characterSingleView";
 import injectContext from "./store/appContext";
+import { Vehicles } from "./views/vehicles";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -31,6 +32,7 @@ const Layout = () => {
 						<Route path="*" element={<h1>Not found!</h1>} />
 						<Route path="/planets" element={<Planets />} />
 						<Route path="/characters" element={<Characters />} />
+						<Route path="/vehicles" element={<Vehicles />} />
 						<Route path="/characterSigleView" element={<SingleView />} />
 
 						

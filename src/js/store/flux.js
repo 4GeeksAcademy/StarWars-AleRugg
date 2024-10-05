@@ -14,8 +14,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			planets: [],
+			planetsGens: [],
 			characters: [],
-			charactersGens: [],
+			charactersGens: [],		
 			vehicles: [],		  
 			favoritos: [],
 		},
@@ -65,6 +66,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.error(err))
 			},
 
+			getAllVehicles: () =>{
+				const requestOptions = {
+					method: "GET",
+					redirect: "follow"
+				  };
+				  
+				  fetch("https://www.swapi.tech/api/vehicles?page=2&limit=100", requestOptions)
+					.then((response) => response.json())
+					.then((result) => setStore({ vehicles: result.results }))
+					.catch((error) => console.error(error))
+
+			},
+
 			getCharactersGens: () => {
 
 				const requestOptions = {
@@ -74,8 +88,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  
 				  fetch("https://swapi.dev/api/people/", requestOptions)
 					.then((response) => response.text())
-					.then((result) => {setStore({ charactersGens: result })
+					.then((result) => {setStore({ charactersGens: result.results })
 					})
+					.catch((error) => console.error(error));
+			},
+
+			getPlanetsGens: () => {
+				const requestOptions = {
+					method: "GET",
+					redirect: "follow"
+				  };
+				  
+				  fetch("https://swapi.dev/api/planets", requestOptions)
+					.then((response) => response.json())
+					.then((result) => console.log(result.results))
 					.catch((error) => console.error(error));
 			},
 			

@@ -9,6 +9,23 @@ import "../../styles/planets.css";
 
 const Planets = () => {
     const { store, actions } = useContext(Context);
+	const [planetsGens, setPlanetsGens] = useState([])
+
+	useEffect(()=>{
+
+		const requestOptions = {
+			method: "GET",
+			redirect: "follow"
+		  };
+		  
+		  fetch("https://swapi.dev/api/planets", requestOptions)
+			.then((response) => response.json())
+			.then((result) => console.log(result))
+			.catch((error) => console.error(error));
+		// actions.getPlanetsGens()
+		
+		
+	}, [store.planets])
 
 	useEffect(() => {
 		actions.getAllPlanets()
@@ -19,8 +36,10 @@ const Planets = () => {
 			  <h1 className="text-white">PLANETS</h1>
 			  <div className="row justify-content-center">
 				{store.planets.map((planet, index) => {
+					console.log(planetsGens)
 				  return (
-					<div className="col-md-4 mb-3 d-flex justify-content-center" key={index}>
+					<div className="col-md-4
+					 mb-3 d-flex justify-content-center" key={index}>
 					  <div className="card " style={{ maxWidth: "540px" }}>
 						<div className="row g-0">
 						  <div className="col-md">
