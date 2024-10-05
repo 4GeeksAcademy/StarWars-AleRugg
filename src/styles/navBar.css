@@ -1,31 +1,19 @@
-/* .background-image{ 
-    src: "https://mdbootstrap.com/img/new/fluid/city/018.jpg";
-    height: 100vh;    
-};
 
-.logo{
-background-image: url("/workspaces/StarWars-AleRugg/src/img/image.png");height: 1000px;
-}
-
-.logo img{
-    width: 1500px;
-height: 1500px;
-}
-
-.navbar {
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
-    align-content: flex-start;
-}
-
-.wrapper {
-
-display: flex;
-justify-content: space-between;
-align-content: flex-start;
-} */
 
 .nav-item{
     margin: 8px;
+  
+}
+
+.redondo{
+    border-radius: 80%;
+}
+
+.nav-justified{
+    width: 100%;
+}
+
+.linkTexts{
+    font-weight:bolder  ;
+    color: rgb(163, 156, 156);
 }

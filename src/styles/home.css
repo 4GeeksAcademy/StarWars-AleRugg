@@ -1,61 +1,109 @@
-.planetsUl{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row; 
+.margins{
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
-/* Contenedor de las cards */
-.prueba {
+.planetsWrapper{
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: hidden; /* Scroll oculto inicialmente */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slidesImgs{
+  object-fit:fill;
+ height: 70vh;
+  width: 150vh ;
+ padding: 100px;
+}
+
+/* Estilo del contenedor de la lista de tarjetas */
+.card-list-container {
+  width: auto; /* Ajusta según el contenedor padre */
+  height: 100%; /* Altura pequeña de las tarjetas */
+  overflow-x: hidden; /* Esconde el scroll por defecto */
+  margin: 20px 0;
   padding: 10px;
-  gap: 10px;
-  scroll-behavior: smooth; /* Desplazamiento suave */
-  transition: overflow-x 0.3s ease-in-out; /* Suavizar la transición de aparición */
-  position: relative; /* Necesario si quieres usar un overlay o más control */
 }
 
-/* Mostrar el scroll cuando el mouse esté sobre el contenedor */
-.prueba:hover {
-  overflow-x: auto; /* Habilitar scroll cuando el mouse está encima */
+/* Estilo de la lista de tarjetas */
+.card-list {
+
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 15px; /* Espacio entre las tarjetas */
+  padding-bottom: 5px;
 }
 
-/* Estilización del scrollbar para navegadores basados en WebKit (Chrome, Safari, Edge) */
-.prueba::-webkit-scrollbar {
-  height: 8px; /* Altura de la barra de desplazamiento */
-  background-color: transparent; /* Invisible inicialmente */
-  border-radius: 10px; /* Bordes redondeados */
-  transition: background-color 0.3s ease; /* Suavizar la transición del fondo */
+/* Mostrar scroll solo al hacer hover */
+.card-list-container:hover .card-list {
+  overflow-x: scroll;
 }
 
-/* Mostrar el scrollbar al hacer hover sobre el contenedor */
-.prueba:hover::-webkit-scrollbar {
-  background-color: rgba(0, 0, 0, 0.1); /* Fondo ligero cuando aparece el scroll */
+/* Estilo del scroll (scroll fino y pequeño) */
+.card-list::-webkit-scrollbar {
+  height: 5px;
 }
 
-/* Estilo del pulgar (parte que arrastras) */
-.prueba::-webkit-scrollbar-thumb {
-  background-color: rgba(136, 136, 136, 0.7); /* Color del pulgar */
-  border-radius: 10px; /* Bordes redondeados para el pulgar */
-  transition: background-color 0.3s ease; /* Suavizar el cambio de color */
+.card-list::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* Cuando se hace hover sobre el pulgar, cambiar el color */
-.prueba::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(85, 85, 85, 0.8); /* Más oscuro al hacer hover */
+.card-list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6); /* Color claro para visibilidad */
+  border-radius: 5px;
 }
 
-/* Firefox: Personalización del scrollbar */
-.prueba {
-  scrollbar-width: thin; /* Scroll delgado */
-  scrollbar-color: rgba(136, 136, 136, 0.7) transparent; /* Color del pulgar y pista transparente */
-}
-
-/* Pista del scroll en Firefox */
-.prueba::-webkit-scrollbar-track {
-  background-color: transparent; /* Oculta la pista por defecto */
-}
-
+/* Estilo de la tarjeta */
+.card-item {
+  flex: 0 0 150px;
+  background-color: #0f0e0e28;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
   
+}
+
+.card-item:hover {
+  transform: scale(1.05);
+}
+
+.card-img {
+  width: 100%;
+  height: 100px;
+  object-fit: fill;
+}
+
+.card-content {
+  padding: 5px;
+}
+
+.card-title {
+  font-size: 16px;
+  color: #fff;
+  margin: 5px 0 3px 0;
+}
+
+.card-description {
+  font-size: 12px;
+  color: #cfcfcf;
+  margin: 0;
+}
+
+.btnSeeMore{
+  border-radius: 10px;
+}
+
+
+
+
+
+

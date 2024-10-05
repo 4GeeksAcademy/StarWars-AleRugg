@@ -76,6 +76,7 @@
 	"dependencies": {
 		"@react-icons/all-files": "^4.1.0",
 		"bootstrap": "^5.3.3",
+		"mdb-ui-kit": "^8.0.0",
 		"prop-types": "^15.7.2",
 		"query-string": "^7.0.1",
 		"react": "^18.2.0",
