@@ -90,14 +90,17 @@ export const Home = () => {
 
 			
 			{/* <!-- Carousel wrapper --> */}
-			<div className="card-list-container">
+			<div className="card-list-container row">
 				<h3 className="text-white" >Planets</h3>
-				<div className="card-list">
+				<div className="card-list ">
 					{store.planets.map((planet, index) => (
-						<div className="card-item" key={index}>
-							<img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} 
-							alt="FotoStarWars"
-							className="card-img text-white" />
+						<div className="card-item col" key={index}>
+						<img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} 
+							className="card-img text-white"							
+							onError={(error) => {
+								error.target.onerror = null; // Evitar bucle infinito si la imagen alternativa falla también
+								error.target.src = "https://i.etsystatic.com/23313394/r/il/42204a/2316127314/il_fullxfull.2316127314_93m1.jpg"; // Ruta a la imagen alternativa
+							  }}/>
 							<div className="card-content">
 								<h5 className="card-title">{planet.name}</h5>
 								<p className="card-description">{planet.uid}</p>
@@ -107,17 +110,30 @@ export const Home = () => {
 					))}
 					
 				</div>	
-				<button className="btnSeeMore" >Ver todos los planetas</button>			
+				<Link to="/planets"
+                        data-mdb-tab-init
+                        className="nav-link linkTexts"
+                        id="ex3-tab-2"
+                        href="#ex3-tabs-2"
+                        role="tab"
+                        aria-controls="ex3-tabs-2"
+                        aria-selected="false"
+                    >                        
+                           <button className="btnSeeMore text-white"  >All planets</button>
+                    </Link>		
 			</div>
 
-			<div className="card-list-container">
+			<div className="card-list-container row ">
 				<h3 className="text-white" >Characters</h3>
 				<div className="card-list">
 					{store.characters.map((character, index) => (
-						<div className="card-item" key={index}>
+						<div className="card-item2 col" key={index}>
 							<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} 
-							alt="FotoStarWars"
-							className="card-img text-white" />
+							className="card-img2 text-white"							
+							onError={(error) => {
+								error.target.onerror = null; // Evitar bucle infinito si la imagen alternativa falla también
+								error.target.src = "https://i.etsystatic.com/23313394/r/il/42204a/2316127314/il_fullxfull.2316127314_93m1.jpg"; // Ruta a la imagen alternativa
+							  }}/>
 							<div className="card-content">
 								<h5 className="card-title">{character.name}</h5>
 								<p className="card-description">{character.uid}</p>
@@ -125,7 +141,18 @@ export const Home = () => {
 						</div>
 					))}
 				</div>
-				<button className="btnSeeMore">Ver todos los planetas</button>
+				<Link to="/characters"
+                        data-mdb-tab-init
+                        className="nav-link linkTexts"
+                        id="ex3-tab-2"
+                        href="#ex3-tabs-2"
+                        role="tab"
+                        aria-controls="ex3-tabs-2"
+                        aria-selected="false"
+                    >                        
+                           <button className="btnSeeMore text-white"  >All characters</button>
+                    </Link>
+				
 			</div>
 				
 		</div>

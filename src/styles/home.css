@@ -19,29 +19,37 @@
 
 .slidesImgs{
   object-fit:fill;
- height: 70vh;
-  width: 150vh ;
+ height: 80vh;
+  width: 160vh ;
  padding: 100px;
 }
 
 /* Estilo del contenedor de la lista de tarjetas */
+/* Estilo del contenedor de la lista de tarjetas */
 .card-list-container {
   width: auto; /* Ajusta según el contenedor padre */
-  height: 100%; /* Altura pequeña de las tarjetas */
+  height: 100%; /* Aumenta la altura para que quepan las tarjetas más grandes */
   overflow-x: hidden; /* Esconde el scroll por defecto */
   margin: 20px 0;
   padding: 10px;
+  margin-right: 200px;
+  margin-left: 200px;
 }
 
 /* Estilo de la lista de tarjetas */
 .card-list {
-
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-behavior: smooth;
   gap: 15px; /* Espacio entre las tarjetas */
   padding-bottom: 5px;
+  height: 100%; /* Usar toda la altura disponible */
+  align-items: flex-start; /* Alinear tarjetas en la parte superior */
 }
+
+
+
 
 /* Mostrar scroll solo al hacer hover */
 .card-list-container:hover .card-list {
@@ -50,7 +58,7 @@
 
 /* Estilo del scroll (scroll fino y pequeño) */
 .card-list::-webkit-scrollbar {
-  height: 5px;
+  height: 7px;
 }
 
 .card-list::-webkit-scrollbar-track {
@@ -64,23 +72,48 @@
 
 /* Estilo de la tarjeta */
 .card-item {
-  flex: 0 0 150px;
-  background-color: #0f0e0e28;
+  flex: 0 0 250px; /* Aumenta el tamaño horizontal de las tarjetas */
+  background-color: #0f0e0e36;
   border-radius: 8px;
+  border: 1px solid rgb(54, 51, 51);
   overflow: hidden;
   transition: transform 0.3s;
-  
+  align-items: flex-start; /* Alinear contenido de las tarjetas arriba */
+}
+
+.card-item2 {
+  flex: 0 0 225px; /* Aumenta el tamaño horizontal de las tarjetas */
+  background-color: #0f0e0e36;
+  border-radius: 8px;
+  border: 1px solid rgb(54, 51, 51);
+  overflow: hidden;
+  transition: transform 0.3s;
+  align-items: flex-start; /* Alinear contenido de las tarjetas arriba */
+}
+
+.card-img {
+  width: 100%;
+  height: 260px; /* Aumenta la altura de la imagen */
+
+  object-fit:initial; /* Ajustar las imágenes sin dejar espacio vacío */
+  margin: 0; /* Eliminar margen */
+  padding: 0; 
+}
+
+.card-img2 {
+  width: 100%;
+  height: 300px; /* Aumenta la altura de la imagen */
+
+  object-fit:initial; /* Ajustar las imágenes sin dejar espacio vacío */
+  margin: 0; /* Eliminar margen */
+  padding: 1; 
 }
 
 .card-item:hover {
   transform: scale(1.05);
 }
 
-.card-img {
-  width: 100%;
-  height: 100px;
-  object-fit: fill;
-}
+
 
 .card-content {
   padding: 5px;
@@ -98,12 +131,47 @@
   margin: 0;
 }
 
+
 .btnSeeMore{
+  width: 220px;
+  margin-top: 7px;
   border-radius: 10px;
+  background-color: rgb(63, 66, 68);
 }
 
 
+@media (max-width: 768px) {
+  .card-list-container {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 
+  .card-item {
+    min-width: 120px;
+    max-width: 120px;
+  }
 
+  .card-item2 {
+    min-width: 120px;
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-list-container {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .card-item {
+    min-width: 100px;
+    max-width: 100px;
+  }
+
+  .card-item2 {
+    min-width: 100px;
+    max-width: 100px;
+  }
+}
 
 
