@@ -38,9 +38,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
+			getAllPlanets: () => { // ESTE FETCH SOLO TOMA 4 RESULTADOS 
+				fetch("https://www.swapi.tech/api/planets?page=2&limit=82")
+					.then(res => res.json())
+					.then(data => setStore({ planets: data.results }))
+					.catch(err => console.error(err))
+
+			},
+
 
 			getCharacters: () => {
 				fetch("https://www.swapi.tech/api/people/")
+					.then(res => res.json())
+					.then(data => setStore({ characters: data.results }
+						
+					))
+					.catch(err => console.error(err))
+			},
+
+			getAllCharacters: () => {
+				fetch("https://www.swapi.tech/api/people?page=2&limit=82")
 					.then(res => res.json())
 					.then(data => setStore({ characters: data.results }
 						
