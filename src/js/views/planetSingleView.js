@@ -1,37 +1,40 @@
 import React, { useState, useEffect, useContext } from "react";
+import rigoImage from "../../img/image.png";
 import { Context } from "../store/appContext";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
-
+import { Carousel, initMDB } from "mdb-ui-kit";
 
 import "../../styles/singleView.css";
 
 
 
-const CharacterSingleView = () => {
+const PlanetSingleView = () => {
     const { store, actions } = useContext(Context);
-    const { characterId } = useParams()
+    const { planetId } = useParams()
 
 
 
     useEffect(() => {
 
-        actions.getCharacterDetail(characterId)
+        actions.getPlanetDetail(planetId)
+        console.log(store.planetDetail)
 
 
     }, [])
 
 
-    console.log(store.characterDetail)
+    console.log(store.planetDetail)
 
     return (
-        <div className="cardImg">
-            {!store.characterDetail ? (<h1>"cargando personaje..."</h1>) : (
+        <div className="wrapper">
+            {!store.planetDetail ? (<h1>"cargando planeta..."</h1>) : (
 
-                <div className="card mb-3" style={{ maxWidth: "1000px" }}>
+                <div className="card mb-3 cardContainer" style={{ maxWidth: "1000px" }}>
                     <div className="row g-0">
-                        <div className="col-md-6">
-                            <img src={`https://starwars-visualguide.com/assets/img/characters/${characterId}.jpg`}
-                                className="card-img text-white"
+                        <div className="col-md-6 cardimg">
+                            <img src={`https://starwars-visualguide.com/assets/img/planets/${planetId}.jpg`}
+                                className="card-img text-white "
                                 onError={(error) => {
                                     error.target.onerror = null; // Evitar bucle infinito si la imagen alternativa falla también
                                     error.target.src = "https://i.etsystatic.com/23313394/r/il/42204a/2316127314/il_fullxfull.2316127314_93m1.jpg"; // Ruta a la imagen alternativa
@@ -39,48 +42,52 @@ const CharacterSingleView = () => {
                         </div>
                         <div className="col-md-6">
                             <div className="card-body">
-                                <h1 className="card-title text-black mb-3 characterName">{store.characterDetail.name}</h1>
+                                <h5 className="card-title text-black">{store.planetDetail.name}</h5>
 
-                            
                                 <ul>
                                     <li>
-                                    <strong>  Birth date or Creation Date: </strong>{store.characterDetail.birth_year}
+                                        {store.planetDetail.climate}
                                     </li>
                                     <li>
-                                    <strong> Gender:</strong> {store.characterDetail.gender}
+                                        {store.planetDetail.created}
                                     </li>
                                     <li>
-                                    <strong> Eye Color: </strong> {store.characterDetail.eye_color}
+                                        {store.planetDetail.diameter}
                                     </li>
                                     <li>
-                                    <strong> Hair Color: </strong>{store.characterDetail.hair_color}
+                                        {store.planetDetail.edited}
                                     </li>
                                     <li>
-                                    <strong>  Height:</strong> {store.characterDetail.height}
+                                        {store.planetDetail.gravity}
                                     </li>
                                     <li>
-                                    <strong> Skin Color: </strong> {store.characterDetail.skin_color}
+                                        {store.planetDetail.orbital_period}
                                     </li>
                                     <li>
-                                    <strong>  Created:</strong> {store.characterDetail.created}
+                                        {store.planetDetail.population}
                                     </li>
                                     <li>
-                                     <strong> Edited: </strong>{store.characterDetail.edited}
+                                        {store.planetDetail.rotation_period}
                                     </li>
                                     <li>
-                                      <strong>HomeWorld:</strong>  {store.characterDetail.homeworld}
+                                        {store.planetDetail.surface_water}
                                     </li>
                                     <li>
-                                    <strong>  Mass: </strong> {store.characterDetail.mass}
+                                        {store.planetDetail.terrain}
                                     </li>
                                     <li>
-                                    <strong>  Url: </strong>{store.characterDetail.url}
+                                        {store.planetDetail.url}
                                     </li>
                                 </ul>
+
+                                <p className="card-text">
+                                    <small className="text-muted">Last updated 3 mins ago</small>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+          
 
             )}
 
@@ -88,4 +95,4 @@ const CharacterSingleView = () => {
     )
 }
 
-export { CharacterSingleView };
+export { PlanetSingleView };

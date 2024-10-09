@@ -47,23 +47,6 @@ export const Navbar = () => {
                         </a>
                     </li>
 
-                    <li className="nav-item me-3 me-lg-0 dropdown">
-                        <a data-mdb-dropdown-init className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i className="fas fa-user text-white"></i>
-                        </a>
-                        <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a className="dropdown-item" href="#">Action</a>
-                            </li>
-                            <li>
-                                <a className="dropdown-item" href="#">Another action</a>
-                            </li>
-                            <li><hr className="dropdown-divider" /></li>
-                            <li>
-                                <a className="dropdown-item" href="#">Something else here</a>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
                 <div>
                     <Link to="/">

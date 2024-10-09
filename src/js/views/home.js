@@ -126,7 +126,7 @@ export const Home = () => {
 				<h3 className="text-white" >Characters</h3>
 				<div className="card-list">
 					{store.characters.map((character, index) => (
-						<div className="card-item2 col" key={index}>
+						<div className="card-item col" key={index}>
 							<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} 
 							className="card-img2 text-white"							
 							onError={(error) => {

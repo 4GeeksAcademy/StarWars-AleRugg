@@ -14,9 +14,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			planets: [],
-			planetsGens: [],
+			planetDetail: null,
 			characters: [],
-			charactersGens: [],		
+			characterDetail: null,		
 			vehicles: [],		  
 			favoritos: [],
 		},
@@ -31,7 +31,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				*/
 			},
 
-			getPlanets: () => { // ESTE FETCH SOLO TOMA 4 RESULTADOS 
+			getPlanetDetail: (id) => { // ESTE FETCH SOLO TOMA 4 RESULTADOS 
+				fetch(`https://www.swapi.tech/api/planets/${id}`)
+					.then(res => res.json())
+					.then(data => setStore({ planetDetail: data.result.properties }))
+					.catch(err => console.error(err))
+
+			},
+
+			getCharacterDetail: (id) => { // ESTE FETCH SOLO TOMA 4 RESULTADOS 
+				fetch(`https://www.swapi.tech/api/people/${id}`)
+					.then(res => res.json())
+					.then(data => setStore({ characterDetail: data.result.properties }))
+					.catch(err => console.error(err))
+
+			},
+
+			getPlanets: () => { // ESTE FETCH SOLO TOMA 10 RESULTADOS 
 				fetch("https://www.swapi.tech/api/planets?page=1&limit=10")
 					.then(res => res.json())
 					.then(data => setStore({ planets: data.results }))
@@ -39,7 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			getAllPlanets: () => { // ESTE FETCH SOLO TOMA 4 RESULTADOS 
+			getAllPlanets: () => {  
 				fetch("https://www.swapi.tech/api/planets?page=2&limit=82")
 					.then(res => res.json())
 					.then(data => setStore({ planets: data.results }))
@@ -77,32 +93,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((result) => setStore({ vehicles: result.results }))
 					.catch((error) => console.error(error))
 
-			},
-
-			getCharactersGens: () => {
-
-				const requestOptions = {
-					method: "GET",
-					redirect: "follow"
-				  };
-				  
-				  fetch("https://swapi.dev/api/people/", requestOptions)
-					.then((response) => response.text())
-					.then((result) => {setStore({ charactersGens: result.results })
-					})
-					.catch((error) => console.error(error));
-			},
-
-			getPlanetsGens: () => {
-				const requestOptions = {
-					method: "GET",
-					redirect: "follow"
-				  };
-				  
-				  fetch("https://swapi.dev/api/planets", requestOptions)
-					.then((response) => response.json())
-					.then((result) => console.log(result.results))
-					.catch((error) => console.error(error));
 			},
 			
 			changeColor: (index, color) => {
