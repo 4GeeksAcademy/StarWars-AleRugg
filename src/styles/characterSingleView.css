@@ -1,0 +1,18 @@
+.characterName{
+    font-size:xx-large;
+    font-weight: bolder;
+    text-decoration: underline;
+  }
+  
+.cardImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }

@@ -13,10 +13,10 @@ const Planets = () => {
 	const [planetsGens, setPlanetsGens] = useState([])
 	const params = useParams()
 
-	useEffect(()=>{
+	useEffect(() => {
 		actions.getAllPlanets()
-	},[])
-	
+	}, [])
+
 
 
 	return (
@@ -26,11 +26,10 @@ const Planets = () => {
 				{store.planets.map((planet, index) => {
 
 					return (
-						<div className="col-md-4
-					 mb-3 d-flex justify-content-center" key={index}>
-							<div className="card " style={{ maxWidth: "540px" }}>
+						<div className="col-md-4 mb-3 d-flex justify-content-center" key={index}>
+							<div className="card " style={{ maxWidth: "540px", maxHeight: "350px" }}>
 								<div className="row g-0">
-									<div className="col-md">
+									<div className="col-md-6">
 										<img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`}
 											className="card-img text-white"
 											onError={(error) => {
@@ -38,7 +37,7 @@ const Planets = () => {
 												error.target.src = "https://i.etsystatic.com/23313394/r/il/42204a/2316127314/il_fullxfull.2316127314_93m1.jpg"; // Ruta a la imagen alternativa
 											}} />
 									</div>
-									<div className="col-md">
+									<div className="col-md-6">
 										<div className="card-body">
 											<h5 className="card-title">Card title</h5>
 											<p className="card-text">

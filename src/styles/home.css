@@ -174,4 +174,15 @@
   }
 }
 
+.carousel-inner .carousel-item {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.carouselImg {
+  width: 120vh; /* Adjust the size as needed */
+  height: 50vh; /* Maintain aspect ratio */
+}
+
 

@@ -16,8 +16,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			planetDetail: null,
 			characters: [],
-			characterDetail: null,		
-			vehicles: [],		  
+			characterDetail: null,
+			characterProperties: [],		
+			vehicles: [],
+			vehicleDetail: null,		  
 			favoritos: [],
 		},
 		actions: {
@@ -47,6 +49,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
+			getVehicleDetail: (id) => { // ESTE FETCH SOLO TOMA 4 RESULTADOS 
+				fetch(`https://www.swapi.tech/api/vehicles/${id}`)
+					.then(res => res.json())
+					.then(data => setStore({ vehicleDetail: data.result.properties }))
+					.catch(err => console.error(err))
+
+			},
+
 			getPlanets: () => { // ESTE FETCH SOLO TOMA 10 RESULTADOS 
 				fetch("https://www.swapi.tech/api/planets?page=1&limit=10")
 					.then(res => res.json())
@@ -68,6 +78,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/people/")
 					.then(res => res.json())
 					.then(data => setStore({ characters: data.results }
+						
+					))
+					.catch(err => console.error(err))
+			},
+
+			getCharactersProperties: (id) => {
+				fetch(`https://www.swapi.tech/api/people/${id}`)
+					.then(res => res.json())
+					.then(data => setStore({ characterProperties: data.results.properties }
 						
 					))
 					.catch(err => console.error(err))

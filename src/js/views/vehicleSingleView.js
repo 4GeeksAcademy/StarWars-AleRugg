@@ -3,34 +3,34 @@ import { Context } from "../store/appContext";
 import { useParams } from "react-router";
 
 
-import "../../styles/characterSingleView.css";
+import "../../styles/vehicleSingleView.css";
 
 
 
-const CharacterSingleView = () => {
+const VehicleSingleView = () => {
     const { store, actions } = useContext(Context);
-    const { characterId } = useParams()
+    const { vehicleId } = useParams()
 
 
 
     useEffect(() => {
 
-        actions.getCharacterDetail(characterId)
+        actions.getVehicleDetail(vehicleId)
 
 
     }, [])
 
 
-    console.log(store.characterDetail)
+    console.log(store.vehicleDetail)
 
     return (
         <div className="cardImg">
-            {!store.characterDetail ? (<h1>"cargando personaje..."</h1>) : (
+            {!store.vehicleDetail ? (<h1>"cargando personaje..."</h1>) : (
 
                 <div className="card mb-3" style={{ maxWidth: "1000px" }}>
                     <div className="row g-0">
                         <div className="col-md-6">
-                            <img src={`https://starwars-visualguide.com/assets/img/characters/${characterId}.jpg`}
+                            <img src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicleId}.jpg`}
                                 className="card-img text-white"
                                 onError={(error) => {
                                     error.target.onerror = null; // Evitar bucle infinito si la imagen alternativa falla también
@@ -39,42 +39,42 @@ const CharacterSingleView = () => {
                         </div>
                         <div className="col-md-6">
                             <div className="card-body">
-                                <h1 className="card-title text-black mb-3 characterName">{store.characterDetail.name}</h1>
+                                <h1 className="card-title text-black mb-3 characterName">{store.vehicleDetail.name}</h1>
 
                             
                                 <ul>
                                     <li>
-                                    <strong>  Birth date or Creation Date: </strong>{store.characterDetail.birth_year}
+                                    <strong>  Birth date or Creation Date: </strong>{store.vehicleDetail.model}
                                     </li>
                                     <li>
-                                    <strong> Gender:</strong> {store.characterDetail.gender}
+                                    <strong> Gender:</strong> {store.vehicleDetail.vehicle_class}
                                     </li>
                                     <li>
-                                    <strong> Eye Color: </strong> {store.characterDetail.eye_color}
+                                    <strong> Eye Color: </strong> {store.vehicleDetail.manufacturer}
                                     </li>
                                     <li>
-                                    <strong> Hair Color: </strong>{store.characterDetail.hair_color}
+                                    <strong> Hair Color: </strong>{store.vehicleDetail.cost_in_credits}
                                     </li>
                                     <li>
-                                    <strong>  Height:</strong> {store.characterDetail.height}
+                                    <strong>  Height:</strong> {store.vehicleDetail.length}
                                     </li>
                                     <li>
-                                    <strong> Skin Color: </strong> {store.characterDetail.skin_color}
+                                    <strong> Skin Color: </strong> {store.vehicleDetail.crew}
                                     </li>
                                     <li>
-                                    <strong>  Created:</strong> {store.characterDetail.created}
+                                    <strong>  Created:</strong> {store.vehicleDetail.passengers}
                                     </li>
                                     <li>
-                                     <strong> Edited: </strong>{store.characterDetail.edited}
+                                     <strong> Edited: </strong>{store.vehicleDetail.max_atmosphering_speed}
                                     </li>
                                     <li>
-                                      <strong>HomeWorld:</strong>  {store.characterDetail.homeworld}
+                                      <strong>HomeWorld:</strong>  {store.vehicleDetail.cargo_capacity}
                                     </li>
                                     <li>
-                                    <strong>  Mass: </strong> {store.characterDetail.mass}
+                                    <strong>  Mass: </strong> {store.vehicleDetail.consumables}
                                     </li>
                                     <li>
-                                    <strong>  Url: </strong>{store.characterDetail.url}
+                                    <strong>  Url: </strong>{store.vehicleDetail.url}
                                     </li>
                                 </ul>
                             </div>
@@ -88,4 +88,4 @@ const CharacterSingleView = () => {
     )
 }
 
-export { CharacterSingleView };
+export { VehicleSingleView };

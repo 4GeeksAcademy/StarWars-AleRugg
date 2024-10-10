@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 import { Carousel, initMDB } from "mdb-ui-kit";
 
-import "../../styles/singleView.css";
+import "../../styles/planetSingleView.css";
 
 
 
@@ -42,47 +42,43 @@ const PlanetSingleView = () => {
                         </div>
                         <div className="col-md-6">
                             <div className="card-body">
-                                <h5 className="card-title text-black">{store.planetDetail.name}</h5>
+                                <h1 className="card-title text-black planetName mb-3">{store.planetDetail.name}</h1>
 
                                 <ul>
                                     <li>
-                                        {store.planetDetail.climate}
+                                    <strong>Climate: </strong> {store.planetDetail.climate}
                                     </li>
                                     <li>
-                                        {store.planetDetail.created}
+                                    <strong>Created: </strong> {store.planetDetail.created}
                                     </li>
                                     <li>
-                                        {store.planetDetail.diameter}
+                                     <strong>Diameter: </strong>   {store.planetDetail.diameter}
                                     </li>
                                     <li>
-                                        {store.planetDetail.edited}
+                                    <strong>Edited: </strong> {store.planetDetail.edited}
                                     </li>
                                     <li>
-                                        {store.planetDetail.gravity}
+                                    <strong>Gravity: </strong>   {store.planetDetail.gravity}
                                     </li>
                                     <li>
-                                        {store.planetDetail.orbital_period}
+                                    <strong>Orbital Period: </strong>  {store.planetDetail.orbital_period}
                                     </li>
                                     <li>
-                                        {store.planetDetail.population}
+                                    <strong>Population: </strong>   {store.planetDetail.population}
                                     </li>
                                     <li>
-                                        {store.planetDetail.rotation_period}
+                                    <strong>Rotation Period: </strong>   {store.planetDetail.rotation_period}
                                     </li>
                                     <li>
-                                        {store.planetDetail.surface_water}
+                                    <strong>Water Surface: </strong>  {store.planetDetail.surface_water}
                                     </li>
                                     <li>
-                                        {store.planetDetail.terrain}
+                                    <strong>Terrain: </strong>  {store.planetDetail.terrain}
                                     </li>
                                     <li>
-                                        {store.planetDetail.url}
+                                    <strong>Url: </strong>   {store.planetDetail.url}
                                     </li>
                                 </ul>
-
-                                <p className="card-text">
-                                    <small className="text-muted">Last updated 3 mins ago</small>
-                                </p>
                             </div>
                         </div>
                     </div>
