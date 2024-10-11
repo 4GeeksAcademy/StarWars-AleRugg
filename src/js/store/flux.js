@@ -37,7 +37,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const store = getStore();
 				setStore({ favorites: [...store.favorites, favorite] })
+				console.log(store.favorites)
+			},
 
+				deleteFavorite: (id) => {
+				const store = getStore();
+				store.favorites = store.favorites.filter((_, index) => index !== id);
+				setStore({ favorites: [...store.favorites] })
 			},
 
 
@@ -124,6 +130,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.error(error))
 
 			},
+
+
 
 
 			

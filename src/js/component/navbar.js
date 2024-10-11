@@ -9,16 +9,12 @@ import "../../styles/navBar.css";
 
 export const Navbar = () => {
     const { store, actions } = useContext(Context);
-    const {characterId} = useParams()
+    const { characterId } = useParams()
     const navigate = useNavigate()
 
     const favsCount = store.favorites.length
 
-    const deleteFavorite = (id) => {
-        // Filtrar la lista de favoritos para eliminar el que coincida con el id
-        store.favorites = store.favorites.filter((favorite) => favorite.uid !== id);
-        setStore({ favorites: [...store.favorites] })
-    };
+
 
     return (
 
@@ -61,13 +57,11 @@ export const Navbar = () => {
                         </i>
                         <div className="dropdown-menu text-white" aria-labelledby="dropdownMenu2">
                             <strong>Favoritos:</strong>
-                            {store.favorites.map((favorite, index) => (
-                                <div key={index}>
-                                    <ul>
-                                <li >{favorite} <RiDeleteBin6Fill className="deleteIcon"  onClick={() => deleteFavorite(favorite.uid)}/></li>
-                                </ul>
-                                </div>
-                            ))}
+                            <ul>
+                                {store.favorites.map((favorite, index) => (
+                                    <li key={index}>{favorite}<RiDeleteBin6Fill className="deleteIcon" onClick={() => actions.deleteFavorite(index)} /></li>
+                                ))}
+                            </ul>
                         </div>
                     </li>
                 </ul>
@@ -82,7 +76,7 @@ export const Navbar = () => {
                 <form className="d-flex" role="search">
                     <input className="form-control me-2" list="suggestions" type="search" placeholder="Search" aria-label="Search"></input>
                     <datalist id="suggestions">
-                        <option  value="Luke SkyWalker"></option>
+                        <option value="Luke SkyWalker"></option>
                         <option value="darth Vader"></option>
                         <option value="Tatooine"></option>
                         <option value="Sand Crawler"></option>
