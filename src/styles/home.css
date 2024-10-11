@@ -66,7 +66,7 @@
 }
 
 .card-list::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.6); /* Color claro para visibilidad */
+  background-color: rgb(163, 156, 156); /* Color claro para visibilidad */
   border-radius: 5px;
 }
 
@@ -121,13 +121,13 @@
 
 .card-title {
   font-size: 16px;
-  color: #fff;
+  color: rgb(163, 156, 156);
   margin: 5px 0 3px 0;
 }
 
 .card-description {
   font-size: 12px;
-  color: #cfcfcf;
+  color: rgb(163, 156, 156);
   margin: 0;
 }
 
@@ -136,7 +136,7 @@
   width: 220px;
   margin-top: 7px;
   border-radius: 10px;
-  background-color: rgb(63, 66, 68);
+  background-color: rgb(163, 156, 156);
 }
 
 

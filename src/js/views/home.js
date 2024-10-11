@@ -3,8 +3,11 @@ import rigoImage from "../../img/image.png";
 import slide1 from "../../img/slide1.png";
 import slide2 from "../../img/slide2.png";
 import slide3 from "../../img/slide3.png";
+import slide4 from "../../img/slide4.png";
+import slide5 from "../../img/slide5.png";
+import slide6 from "../../img/slide6.png";
 import { Context } from "../store/appContext";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import { Carousel, initMDB } from "mdb-ui-kit";
 import { Ripple } from "mdb-ui-kit";
 
@@ -13,6 +16,7 @@ import "../../styles/home.css";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	const navigate = useNavigate();
 	const params = useParams();
 
 
@@ -73,6 +77,26 @@ export const Home = () => {
 							alt="Cliff Above a Stormy Sea" />
 
 					</div>
+
+					<div className="carousel-item">
+						<img src={slide4} className="d-block  slidesImgs"
+							alt="Cliff Above a Stormy Sea" />
+
+					</div>
+
+					<div className="carousel-item">
+						<img src={slide5} className="d-block  slidesImgs"
+							alt="Cliff Above a Stormy Sea" />
+
+					</div>
+
+					<div className="carousel-item">
+						<img src={slide6} className="d-block  slidesImgs"
+							alt="Cliff Above a Stormy Sea" />
+
+					</div>
+
+					
 				</div>
 				{/* <!-- Inner --> */}
 
@@ -93,7 +117,7 @@ export const Home = () => {
 				<h3 className="text-white" >Planets</h3>
 				<div className="card-list ">
 					{store.planets.map((planet, index) => (
-						<div className="card-item col" key={index}>
+						<div className="card-item col" key={index} onClick={()=> navigate(`/planetSingleView/${planet.uid}`)} >
 						<img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} 
 							className="card-img text-white"							
 							onError={(error) => {
@@ -126,7 +150,7 @@ export const Home = () => {
 				<h3 className="text-white" >Characters</h3>
 				<div className="card-list">
 					{store.characters.map((character, index) => (
-						<div className="card-item col" key={index}>
+						<div className="card-item col" key={index} onClick={()=> navigate(`/characterSingleView/${character.uid}`)} >
 							<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} 
 							className="card-img2 text-white"							
 							onError={(error) => {

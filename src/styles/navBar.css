@@ -17,3 +17,11 @@
     font-weight:bolder  ;
     color: rgb(163, 156, 156);
 }
+
+.dropdown-menu{
+    background-color: rgba(0, 0, 0, 0.314);
+}
+
+.deleteIcon{
+    cursor: pointer;
+}

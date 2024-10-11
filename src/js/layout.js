@@ -11,7 +11,8 @@ import { CharacterSingleView } from "./views/characterSingleView";
 import injectContext from "./store/appContext";
 import { Vehicles } from "./views/vehicles";
 import { PlanetSingleView } from "./views/planetSingleView";
-import { VehicleSingleView } from "./views/vehicleSingleView";
+import { VehicleSingleView } from "./views/vehicleSingleView"
+import { FavoritesView } from "./component/favoritesView";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -38,6 +39,7 @@ const Layout = () => {
 						<Route path="/planetSingleView/:planetId" element={<PlanetSingleView />} />
 						<Route path="/characterSingleView/:characterId" element={<CharacterSingleView />} />
 						<Route path="/vehicleSingleView/:vehicleId" element={<VehicleSingleView />} />
+						<Route path="/favoritesView/" element={<FavoritesView  />} />
 
 						
 					</Routes>

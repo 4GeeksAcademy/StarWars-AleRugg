@@ -34,7 +34,7 @@ const CharacterSingleView = () => {
                                 className="card-img text-white"
                                 onError={(error) => {
                                     error.target.onerror = null; // Evitar bucle infinito si la imagen alternativa falla también
-                                    error.target.src = "https://i.etsystatic.com/23313394/r/il/42204a/2316127314/il_fullxfull.2316127314_93m1.jpg"; // Ruta a la imagen alternativa
+                                    error.target.src = "https://i.etsystatic.com/23313394/r/il/42204a/2316127314/il_fullxfull.2316127314_93m1.jpg";
                                 }} />
                         </div>
                         <div className="col-md-6">

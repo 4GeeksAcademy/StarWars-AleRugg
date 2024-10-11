@@ -20,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characterProperties: [],		
 			vehicles: [],
 			vehicleDetail: null,		  
-			favoritos: [],
+			favorites: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -33,7 +33,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				*/
 			},
 
-			getPlanetDetail: (id) => { // ESTE FETCH SOLO TOMA 4 RESULTADOS 
+			addFavorites: (favorite) => {
+
+				const store = getStore();
+				setStore({ favorites: [...store.favorites, favorite] })
+
+			},
+
+
+
+			
+
+			getPlanetDetail: (id) => { 
 				fetch(`https://www.swapi.tech/api/planets/${id}`)
 					.then(res => res.json())
 					.then(data => setStore({ planetDetail: data.result.properties }))
@@ -113,6 +124,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.error(error))
 
 			},
+
+
 			
 			changeColor: (index, color) => {
 				//get the store
